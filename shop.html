@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famoze-shop</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+/* #Primary================================================== */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+body{
+    background: rgb(0, 0, 0);
+
+}
+figcaption{
+    font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #212112;
+	background-color: #fff;
+	overflow-x: hidden;
+    transition: all 200ms linear;
+}
+::selection {
+	color: #fff;
+	background-color: #8167a9;
+}
+::-moz-selection {
+	color: #fff;
+	background-color: #8167a9;
+}
+/* #Navigation
+================================================== */
+.start-header {
+	opacity: 1;
+	transform: translateY(0);
+	padding: 20px 0;
+	box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+.start-header.scroll-on {
+	box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+	padding: 10px 0;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+.start-header.scroll-on .navbar-brand img{
+	height: 24px;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+.navigation-wrap{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+.navbar{
+	padding: 0;
+}
+.navbar-brand img{
+    margin-left: 10px;
+	height: 35px;
+	width: auto;
+	display: block;
+  filter: brightness(10%);
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+.navbar-toggler {
+	float: right;
+	border: none;
+	padding-right: 0;
+}
+.navbar-toggler:active,
+.navbar-toggler:focus {
+	outline: none;
+}
+.navbar-light .navbar-toggler-icon {
+	width: 24px;
+	height: 17px;
+	background-image: none;
+	position: relative;
+	border-bottom: 1px solid #ffffff;
+    transition: all 300ms linear;
+}
+.navbar-light .navbar-toggler-icon:after, 
+.navbar-light .navbar-toggler-icon:before{
+	width: 24px;
+	position: absolute;
+	height: 1px;
+	background-color: #ffffff;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+    transition: all 300ms linear;
+}
+.navbar-light .navbar-toggler-icon:after{
+	top: 8px;
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
+}
+.nav-link{
+	color: #212121 !important;
+	font-weight: 500;
+    transition: all 200ms linear;
+}
+.nav-item:hover .nav-link{
+	color: #8167a9 !important;
+}
+.nav-item.active .nav-link{
+	color: #777 !important;
+}
+.nav-link {
+	position: relative;
+	padding: 5px 0 !important;
+	display: inline-block;
+  
+}
+.nav-item:after{
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: #8167a9;
+	opacity: 0;
+    transition: all 200ms linear;
+}
+.nav-item:hover:after{
+	bottom: 0;
+	opacity: 1;
+}
+.nav-item.active:hover:after{
+	opacity: 0;
+}
+.nav-item{
+	position: relative;
+    transition: all 200ms linear;
+}
+
+/* #Primary style
+================================================== */
+.nav-item .dropdown-menu {
+    transform: translate3d(0, 10px, 0);
+    visibility: hidden;
+    opacity: 0;
+	max-height: 0;
+    display: block;
+	padding: 0;
+	margin: 0;
+    transition: all 200ms linear;
+}
+.nav-item.show .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+	max-height: 999px;
+    transform: translate3d(0, 0px, 0);
+}
+.dropdown-menu {
+	padding: 10px!important;
+	margin: 0;
+	font-size: 13px;
+	letter-spacing: 1px;
+	color: #212121;
+	background-color: #fcfaff;
+	border: none;
+	border-radius: 3px;
+	box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+    transition: all 200ms linear;
+}
+.dropdown-toggle::after {
+	display: none;
+}
+
+.dropdown-item {
+	padding: 3px 15px;
+	color: #212121;
+	border-radius: 2px;
+    transition: all 200ms linear;
+}
+.dropdown-item:hover, 
+.dropdown-item:focus {
+	color: #fff;
+	background-color: rgba(129,103,169,.6);
+}
+/* #Media
+================================================== */
+
+@media (max-width: 767px) { 
+	h1{
+		font-size: 38px;
+	}
+	.nav-item:after{
+		display: none;
+	}
+	.nav-item::before {
+		position: absolute;
+		display: block;
+		top: 15px;
+		left: 0;
+		width: 11px;
+		height: 1px;
+		content: "";
+		border: none;
+		background-color: #000;
+		
+	}
+	.dropdown-toggle::after {
+		position: absolute;
+		display: block;
+		top: 10px;
+		left: -23px;
+		width: 1px;
+		height: 11px;
+		content: "";
+		border: none;
+		background-color: #000;
+		
+		transition: all 200ms linear;
+	}
+	.dropdown-toggle[aria-expanded="true"]::after{
+		transform: rotate(90deg);
+		opacity: 0;
+	}
+	.dropdown-menu {
+		padding: 0 !important;
+		background-color: transparent;
+		box-shadow: none;
+		transition: all 200ms linear;
+	}
+	.dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+		margin-top: 10px !important;
+		margin-bottom: 20px !important;
+	}
+	figcaption.dark .nav-item::before {
+		background-color: #fff;
+	}
+	figcaption.dark .dropdown-toggle::after {
+		background-color: #fff;
+	}
+	figcaption.dark .dropdown-menu {
+		background-color: transparent;
+		box-shadow: none;
+	}
+}
+/* Add this to change the navbar background color and font color */
+.navigation-wrap {
+    background-color: #000; /* Sets navbar background to black */
+}
+
+.navbar .nav-link, 
+.navbar .navbar-brand, 
+.navbar .dropdown-item {
+    color: #fff !important; /* Sets font color to white */
+}
+
+.navbar .navbar-brand img {
+    filter: brightness(100%);
+}
+
+/* Ensure dropdown items change color on hover for better visibility */
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    background-color: #444; /* Darker background on hover */
+    color: #fff !important;
+}
+/* Set navbar background to black and font color to white */
+.navigation-wrap.bg-light {
+    background-color: #000 !important; /* Ensures black background */
+}
+
+.navbar .nav-link, 
+.navbar .navbar-brand, 
+.navbar .dropdown-item {
+    color: #fff !important; /* Sets text color to white */
+}
+
+.navbar .navbar-brand img {
+    filter: brightness(100%);
+}
+
+/* Style for dropdown menu */
+.navbar .dropdown-menu {
+    background-color: #000; /* Ensures dropdown menu is also black */
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    background-color: #7543ff; /* Darker background on hover for dropdown */
+    color: #fff !important;
+}
+
+
+
+/* =================ALL PROJECT================================= */
+.total-item{
+    
+    margin-top: 100px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 0;
+    border-radius: 5px;
+}
+
+.item {
+    display: flex;
+    margin-top: 0px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 10px;
+    border-radius: 5px;
+}
+.item-image{
+    width: 50%; 
+    height: auto; 
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    background-color: #212112;
+    border: solid 2px whitesmoke;
+    transition: transform 0.3s ease;
+}
+.item-image:hover{
+  background: linear-gradient(
+    90deg,
+    rgb(118, 167, 63) 0%,
+    rgb(51, 143, 118) 40%,
+    rgb(55, 141, 167) 50%,
+    rgb(117, 152, 242) 70%,
+    rgb(144, 118, 236) 100%
+  );
+  transform: scale(1.03);
+}
+.item-text{
+    width: 50%; 
+    padding: 10px;
+}
+@media (max-width: 1024px) { 
+    .item {
+        display:grid;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .item-image{
+        width: 100%;
+        padding: 5px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .item-text{
+        width: 100%;
+        padding: 5px; 
+    }
+    .item-image:hover{
+  background: linear-gradient(
+    90deg,
+    rgb(118, 167, 63) 0%,
+    rgb(51, 143, 118) 40%,
+    rgb(55, 141, 167) 50%,
+    rgb(117, 152, 242) 70%,
+    rgb(144, 118, 236) 100%
+  );
+  transform: scale(1.02);
+}
+.total-item{
+  max-width: 95%;
+}
+}
+.gradient-te {
+  
+ color: whitesmoke;
+  font-size: 2.5rem;
+}
+
+
+/* FOOTER */
+
+
+
+
+
+
+
+
+
+
+
+footer{
+ 
+ background: rgb(0, 0, 0);
+ background: radial-gradient(
+   circle,
+   rgb(0, 36, 107) 1%,
+   rgb(0, 0, 0) 80%
+ );
+
+}
+.footer-column {
+ float: left;
+ width: 50%;
+ padding: 0 10px 30px;
+ background: transparent;
+}
+
+/* Remove extra left and right margins, due to padding */
+.footer-row {
+ padding: 40px 0 0 0;
+ background: transparent;
+ width: 90%;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+/* Clear floats after the columns */
+.footer-row:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+ .footer-column {
+   width: 100%;
+   display: block;
+   margin-bottom: 20px;
+ }
+}
+
+/* Style the counter cards */
+.footer-card {
+
+ padding: 16px;
+
+ background: transparent;
+}
+
+
+
+input {
+ padding-inline-end: 10px;
+ padding-inline-start: 10px;
+ background-color: transparent;
+ outline: transparent;
+ border: 0;
+ border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+ margin-right: 10px;
+ transition: all 0.3s ease-in;
+ -webkit-transition: all 0.3s ease-in;
+}
+
+input::placeholder {
+ color: rgb(117, 152, 242);
+ opacity: 0.5;
+ font-weight: 500;
+}
+
+input[type="email"] {
+ color: rgba(255, 255, 255, 0.7);
+ font-weight: 500;
+ font-size: 1rem;
+}
+
+input[type="email"]:focus {
+ border: transparent;
+ outline: 2px dotted rgb(117, 152, 242);
+ outline-offset: -3px;
+}
+#footer-card{
+ padding: 120px 0 0 0;
+}
+@media screen and (max-width: 600px) {
+ #footer-card{
+   padding: 0;
+   
+ }
+ #form {
+   margin-left: auto;
+   margin-right: auto;
+ }
+}
+@media screen and (min-width: 600px) {
+ .footer-form {
+   margin-top: 50px;
+ }
+}
+@media screen and (max-width: 600px) {
+ .footer-form {
+   margin-top: 0px;
+ }
+}
+#footer-h1{
+ font-family: fantasy; font-size: 2.8rem; padding: 80px 0 0 0;
+}
+.footer-p{
+ color: whitesmoke;font-weight:600;font-size: 1.2rem; margin-top: 20px;
+}
+@media screen and (min-width: 600px) and (max-width:800px){
+ #footer-h1{
+   font-size: 2rem;
+ }
+ .footer-p{
+   font-size: 1.2rem;
+ }
+}
+
+/* BUTTON */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  max-width: max-content;
+  background: linear-gradient(
+    90deg,
+    rgb(118, 167, 63) 0%,
+    rgb(51, 143, 118) 40%,
+    rgb(55, 141, 167) 50%,
+    rgb(117, 152, 242) 70%,
+    rgb(144, 118, 236) 100%
+  );
+  background-size: 200%;
+  background-position: left;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border: 0;
+  padding: 12px 16px;
+  border-radius: 25px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.btn:hover {
+  background-position: right;
+}
+#form {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+@media (max-width: 1215px) {
+  .btn {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1015px) {
+  .home {
+    grid-template-columns: 45% 50%;
+    gap: 50px;
+    padding: 140px 50px;
+  }
+  .btn {
+    padding: 8px 12px;
+  }
+}
+@media (max-width: 865px) {
+  .home {
+    grid-template-columns: 45% 50%;
+    gap: 60px;
+    padding: 130px 70px;
+  }
+  
+ 
+}
+@media (max-width: 815px) {
+  .home {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "userscolorcontainer"
+      "description";
+    gap: 20px;
+    padding: 50px 80px 70px;
+  }
+  .description {
+    grid-area: description;
+    padding: 0;
+    text-align: center;
+  }
+
+  #form {
+    justify-content: center;
+  }
+}
+@media (max-width: 460px) {
+   .home {
+    gap: 0;
+    padding: 50px 40px;
+    justify-content: center;
+  }
+  
+  #form {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.gradient-text {
+  
+  background-image: linear-gradient(
+    90deg,
+    rgb(118, 167, 63) 0%,
+    rgb(51, 143, 118) 40%,
+    rgb(55, 141, 167) 50%,
+    rgb(117, 152, 242) 70%,
+    rgb(144, 118, 236) 100%
+  );
+  color: transparent;
+  background-size: contain;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: 2.5rem;
+}
+    </style>
+</head>
+<body>
+    <figcaption class="hero-anime">	
+
+        <div class="navigation-wrap bg-light start-header start-style">
+            <div class="nav-container">
+                <div class="nav-row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+                        
+                            <a class="navbar-brand" href="index.html" target="_blank"><img src="logo.png" alt=""></a>	
+                            
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">PORTFOLIO WEBSITE</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">PRODUCT WEBSITE</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">SIGN IN PAGE</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">BUTTON</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">NAVBAR</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">FOOTER</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </nav>		
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </figcaption>
+
+
+    
+
+<!---projects--->
+
+
+
+<div class="total-item">
+  <div class="item">
+      <div class="item-image">
+          <center><h1 class="gradient-te">Pricing Page</h1></center>
+          <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+            <source src="1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
+      <div class="item-image">
+          <center><h1 class="gradient-te">Website</h1></center>
+          <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+            <source src="2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
+      
+  </div>
+
+  <div class="item">
+    <div class="item-image">
+        <center><h1 class="gradient-te">Product Page</h1></center>
+        <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+          <source src="3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="item-image">
+        <center><h1 class="gradient-te">Website</h1></center>
+        <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+          <source src="4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+    </div>
+    
+</div>
+
+<div class="item">
+  <div class="item-image">
+      <center><h1 class="gradient-te">Product Page</h1></center>
+      <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+        <source src="5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="item-image">
+      <center><h1 class="gradient-te">Portfolio</h1></center>
+      <video id="myVideo" width="100%" height="auto" controls autoplay loop>
+        <source src="2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+  
+</div>
+
+
+
+</div>
+
+
+
+      <!---FOOTER--->
+
+
+
+
+      
+      <footer>
+        <hr style="width: 90%;margin-left: auto;margin-right: auto;border-radius: 95%;margin-top: 80px; background-color: whitesmoke;">
+        <div class="footer-row">
+          <div class="footer-column">
+            <div class="footer-card">
+              <h1 id="footer-h1" class="gradient-text">Stay Updated with Our Latest Resources</h1>
+              <p class="footer-p">Get the latest updates on our ebooks, courses, and eProducts designed to elevate your web development skills. Join our mailing list to never miss an update.</p>
+            </div>
+          </div>
+        
+          <div class="footer-column">
+            <div class="footer-card" id="footer-card">
+              <div class="footer-form">
+                <form style="margin-left: auto;margin-right: auto;" id="form">
+                  <input
+                    type="email"
+                    id="email-id"
+                    name="email_address"
+                    aria-label="email adress"
+                    placeholder=""
+                    required
+                    oninput="checkEmpty()" />
+                  <button type="submit" class="btn" aria-label="submit">
+                    <span>Subscribe</span>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+      
+        <div class="footer-row" style="margin-bottom: 0px;">
+          <div class="footer-column">
+            <div class="footer-card">
+              <center><i style="color: whitesmoke;font-size: 60px;" class="fas fa-map-marker-alt"></i></center>
+              <center><p class="footer-p">Kolkata,West Bengal,700001</p></center>
+            </div>
+          </div>
+      
+          <div class="footer-column">
+            <div class="footer-card">
+              <center><i style="color: whitesmoke;font-size: 60px;" class="fas fa-envelope"></i></center>
+             <center> <p class="footer-p">famoze.agency@gmail.com</p></center>
+            </div>
+          </div>
+        </div>
+        <center><p style="color: whitesmoke;margin-bottom: 50px;">© 2024 Famoze.All rights reserved.</p></center>
+        <hr style="width: 90%;margin-left: auto;margin-right: auto;border-radius: 95%;margin-top: 0px;">
+        
+      </footer>
+      
+      
+      
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        
+(function($) { "use strict";
+
+$(function() {
+    var header = $(".start-style");
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+    
+        if (scroll >= 10) {
+            header.removeClass('start-style').addClass("scroll-on");
+        } else {
+            header.removeClass("scroll-on").addClass('start-style');
+        }
+    });
+});		
+    
+//Animation
+
+$(document).ready(function() {
+    $('figcaption.hero-anime').removeClass('hero-anime');
+});
+
+//Menu On Hover
+    
+$('figcaption').on('mouseenter mouseleave','.nav-item',function(e){
+        if ($(window).width() > 750) {
+            var _d=$(e.target).closest('.nav-item');_d.addClass('show');
+            setTimeout(function(){
+            _d[_d.is(':hover')?'addClass':'removeClass']('show');
+            },1);
+        }
+});	
+
+})(jQuery); 
+    </script>
+</body>
+</html>
