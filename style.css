@@ -232,7 +232,7 @@ img {
   width: 100%;
   height: auto;
 
-  max-width: 400px;
+  max-width: 600px;
   
   animation: fadeIn 2s linear 1 forwards;
   animation-delay: calc(0.2s * var(--i));
